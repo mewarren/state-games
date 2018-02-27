@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './app.css';
 import Player from './player/Player';
 import { start, rooms } from './rooms/rooms';
-
+import Room from './rooms/Room';
 export default class App extends Component {
 
 
@@ -15,20 +15,25 @@ export default class App extends Component {
       health: 0,
       skill: 0,
       disguise: 0
-    },
-    // rooms:
+    }
   };
 
   
   
   render() {
-    const { player } = this.state;
+    const { player, room } = this.state;
+    console.log('room from state: ', room);
 
     return (
-      <header>
-        <h1>Blood Rave</h1>
-        <Player player={player}/>
-      </header>
+      <div>
+        <header>
+          <h1>Blood Rave</h1>
+          <Player player={player}/>
+        </header>
+        <main>
+          <Room room={room}/>
+        </main>
+      </div>
     );
   }
 }

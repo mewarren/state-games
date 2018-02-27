@@ -10,7 +10,6 @@ const hideout = {
   doors: {
     d: 'dojo'
   }
-
 };
 
 const dojo = {};
