@@ -20,7 +20,7 @@ the player defeats or interacts with.
     1. State --> View (via `render` method)
     1. View Events --> Actions (via passing function props)
     1. Actions --> App Logic --> State Changes (via `handle<actiom>` methods on component)
-    1. React takes care of: State Changes --> #1 
+    1. React takes care of: State Changes --> `i.` 
 
 * The goal is to jump into React and try and build something more complex!
 
