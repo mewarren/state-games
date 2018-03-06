@@ -3,9 +3,9 @@ import './app.css';
 import Player from './player/Player';
 import { start, rooms } from './rooms/rooms';
 import Room from './rooms/Room';
+
+
 export default class App extends Component {
-
-
 
   state = {
     rooms,
@@ -23,10 +23,38 @@ export default class App extends Component {
       room: this.state.rooms[roomKey]
     });
   };
+
+  changeHealth= (value) => {
+    const player = this.state.player;
+    this.setState({
+      player: {
+        ...player,
+        health: this.state.player.health + value
+      }
+    });   
+  };
+
+  changeSkill= (value) => {
+    const player = this.state.player;
+    this.setState({
+      player: {
+        ...player,
+        skill: this.state.player.skill + value
+      }
+    });   
+  };
+
+  handleStat = (value) => {
+    if(this.state.room.title === 'Hideout') { 
+      this.changeHealth(value);
+    }
+    if(this.state.room.title === 'Dojo') { 
+      this.changeSkill(value);
+    }  
+  };
   
   render() {
     const { player, room } = this.state;
-    console.log('room from state: ', room);
 
     return (
       <div>
@@ -35,7 +63,10 @@ export default class App extends Component {
           <Player player={player}/>
         </header>
         <main>
-          <Room room={room} onMove={this.handleMove}/>
+          <Room 
+            room={room} 
+            onRest={this.handleStat} 
+            onMove={this.handleMove}/>
         </main>
       </div>
     );

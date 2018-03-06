@@ -1,31 +1,42 @@
 import React, { Component } from 'react';
 import './room.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
+const passage = {
+  d: 'Dojo',
+  h: 'Hideout'
+};
 
 export default class Room extends Component {
 
-
+  static propTypes = {
+    onRest: PropTypes.func.isRequired,
+  };
+  
+  getRest = () => {
+    this.props.onRest(1);
+  }; 
   
   render() {
-    const passage = {
-      d: 'Dojo',
-      h: 'Hideout'
-    };
 
-    const { room, onMove } = this.props;
-    console.log('room from props: ', room);
-
-    const { title, description, items, doors } = room;
-    console.log(doors);
-
-    
+    const { room, onMove} = this.props;
+    const { title, description, actions, doors } = room;
 
     return (
       <div className="room">
         <h2>{title}</h2>
         <p>{description}</p>
-        <h3>Items</h3>
         
+        <h3>Actions</h3> 
+        <ul>      
+          {actions.map(item => (          
+            <li  className="itemList" key={item.key}>
+              <button onClick={this.getRest}>{item.key}</button>
+              <p>{item.description}</p>
+            </li>
+          ))}
+        </ul>  
+
         <h3>Doors</h3>
         <ul>
           {Object.keys(doors).map(key => (
@@ -33,12 +44,8 @@ export default class Room extends Component {
               <button onClick={() => onMove(doors[key])}>{passage[key]}</button>
             </li>
           ))} 
-        </ul>
-
-
-      
+        </ul>     
       </div>
-
     );
   }
 }
