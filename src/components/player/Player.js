@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './player.css';
 // import PropTypes from 'prop-types';
 
 export default class Player extends Component {
@@ -6,12 +7,12 @@ export default class Player extends Component {
   render() {
     const { player } = this.props;
     return (
-      <div>
+      <div className="playerStats">
         <h2>{player.name}</h2>
         <ul>
-          <li>{player.health}</li>
-          <li>{player.skill}</li>
-          <li>{player.disguise}</li>
+          <li>Health: {player.health}</li>
+          <li>Skill: {player.skill}</li>
+          <li>Disguise: {player.disguise}</li>
         </ul>
       </div>
     );

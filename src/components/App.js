@@ -27,7 +27,7 @@ export default class App extends Component {
     return (
       <div>
         <header>
-          <h1>Blood Rave</h1>
+          <h1>BloodRave</h1>
           <Player player={player}/>
         </header>
         <main>
