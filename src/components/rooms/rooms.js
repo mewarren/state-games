@@ -22,7 +22,7 @@ const dojo = {
     }
   ],
   doors: {
-    d: 'hideout'
+    h: 'hideout'
   }
 };
 

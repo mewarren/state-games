@@ -18,7 +18,11 @@ export default class App extends Component {
     }
   };
 
-  
+  handleMove = roomKey => {
+    this.setState({
+      room: this.state.rooms[roomKey]
+    });
+  };
   
   render() {
     const { player, room } = this.state;
@@ -31,7 +35,7 @@ export default class App extends Component {
           <Player player={player}/>
         </header>
         <main>
-          <Room room={room}/>
+          <Room room={room} onMove={this.handleMove}/>
         </main>
       </div>
     );

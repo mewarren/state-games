@@ -8,9 +8,11 @@ export default class Room extends Component {
   
   render() {
     const passage = {
-      d: 'Dojo'
+      d: 'Dojo',
+      h: 'Hideout'
     };
-    const { room } = this.props;
+
+    const { room, onMove } = this.props;
     console.log('room from props: ', room);
 
     const { title, description, items, doors } = room;
@@ -27,7 +29,8 @@ export default class Room extends Component {
         <h3>Doors</h3>
         <ul>
           {Object.keys(doors).map(key => (
-            <li key={key}>{passage[key]}
+            <li key={key}>
+              <button onClick={() => onMove(doors[key])}>{passage[key]}</button>
             </li>
           ))} 
         </ul>

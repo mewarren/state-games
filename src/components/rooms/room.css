@@ -16,9 +16,11 @@
     align-items: center;
   }
 
-  li {
+  li > button{
     background: black;
     color: white;
+    text-transform: uppercase;
+    border: none;
     margin: 1rem .5rem;
     padding: .5rem;
     &:hover { background: red; color: black; }
