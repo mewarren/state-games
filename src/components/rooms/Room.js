@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './room.css';
 // import PropTypes from 'prop-types';
 
 export default class Room extends Component {
@@ -21,6 +22,8 @@ export default class Room extends Component {
       <div className="room">
         <h2>{title}</h2>
         <p>{description}</p>
+        <h3>Items</h3>
+        
         <h3>Doors</h3>
         <ul>
           {Object.keys(doors).map(key => (
@@ -28,6 +31,8 @@ export default class Room extends Component {
             </li>
           ))} 
         </ul>
+
+
       
       </div>
 
