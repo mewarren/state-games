@@ -4,7 +4,6 @@ import Player from './player/Player';
 import { start, rooms } from './rooms/rooms';
 import Room from './rooms/Room';
 
-
 export default class App extends Component {
 
   state = {
@@ -39,6 +38,7 @@ export default class App extends Component {
     this.setState({
       player: {
         ...player,
+        health: this.state.player.health - 2,
         skill: this.state.player.skill + value
       }
     });   
@@ -65,7 +65,7 @@ export default class App extends Component {
         <main>
           <Room 
             room={room} 
-            onRest={this.handleStat} 
+            onAction={this.handleStat} 
             onMove={this.handleMove}/>
         </main>
       </div>
