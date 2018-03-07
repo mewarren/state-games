@@ -13,8 +13,8 @@ export default class Room extends Component {
     onRest: PropTypes.func.isRequired,
   };
   
-  getRest = () => {
-    this.props.onRest(1);
+  doAction = () => {
+    this.props.onAction(1);
   }; 
   
   render() {
@@ -31,7 +31,7 @@ export default class Room extends Component {
         <ul>      
           {actions.map(item => (          
             <li  className="itemList" key={item.key}>
-              <button onClick={this.getRest}>{item.key}</button>
+              <button onClick={this.doAction}>{item.key}</button>
               <p>{item.description}</p>
             </li>
           ))}

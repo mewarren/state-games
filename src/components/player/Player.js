@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './player.css';
-// import PropTypes from 'prop-types';
 
 export default class Player extends Component {
 
